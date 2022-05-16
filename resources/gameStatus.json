@@ -1,16 +1,14 @@
 {
  "player1": [
   5,
-  1,
-  4,
-  7
+  2,
+  8
  ],
  "player2": [
   3,
-  2,
-  6
+  1
  ],
  "currentPlayer": "player1",
- "totalMoves": 7,
+ "totalMoves": 5,
  "isGameOver": true
 }
