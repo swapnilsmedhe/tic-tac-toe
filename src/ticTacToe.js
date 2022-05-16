@@ -23,10 +23,9 @@ const hasPlayerWon = (playedMoves) => {
     [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]
   ];
 
-  const winningMove = winningMoves.find((winningMove) =>
+  return winningMoves.some((winningMove) =>
     isSubsetOf.call(winningMove, playedMoves)
   );
-  return !!winningMove;
 };
 
 const isGameDrawn = (game) => {
