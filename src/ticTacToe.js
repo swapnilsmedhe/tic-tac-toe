@@ -104,7 +104,7 @@ const readFile = (filePath) => {
   }
 };
 
-const writeFile = (filePath, content) => {
+const writeToFile = (filePath, content) => {
   try {
     fs.writeFileSync(filePath, content, 'utf-8');
   } catch (error) {
@@ -123,8 +123,8 @@ const main = (move) => {
   const message = getMessage(game);
   const html = generatePage(boardStatus, message, template);
 
-  writeFile('./html/index.html', html);
-  writeFile('./resources/gameStatus.json', prettyStringify(game));
+  writeToFile('./html/index.html', html);
+  writeToFile('./resources/gameStatus.json', prettyStringify(game));
 };
 
 main(+process.argv[2]);
