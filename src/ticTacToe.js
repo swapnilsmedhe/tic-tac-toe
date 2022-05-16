@@ -1,5 +1,5 @@
 /* eslint-disable no-magic-numbers */
-const { writeFileSync, readFileSync } = require('fs');
+const fs = require('fs');
 const { generatePage } = require('./generatePage.js');
 
 const registerMove = (game, move) => {
@@ -96,7 +96,21 @@ const getMessage = (game) => {
   return message;
 };
 
-const readFile = (filePath) => readFileSync(filePath, 'utf-8');
+const readFile = (filePath) => {
+  try {
+    return fs.readFileSync(filePath, 'utf-8');
+  } catch (error) {
+    throw 'File not found';
+  }
+};
+
+const writeFile = (filePath, content) => {
+  try {
+    fs.writeFileSync(filePath, content, 'utf-8');
+  } catch (error) {
+    throw 'Unable to save the game';
+  }
+};
 
 const prettyStringify = (value) => JSON.stringify(value, null, 1);
 
@@ -109,8 +123,8 @@ const main = (move) => {
   const message = getMessage(game);
   const html = generatePage(boardStatus, message, template);
 
-  writeFileSync('./html/index.html', html, 'utf-8');
-  writeFileSync('./resources/gameStatus.json', prettyStringify(game), 'utf-8');
+  writeFile('./html/index.html', html);
+  writeFile('./resources/gameStatus.json', prettyStringify(game));
 };
 
 main(+process.argv[2]);
