@@ -1,0 +1,14 @@
+{
+ "player1": [
+  5,
+  9,
+  1
+ ],
+ "player2": [
+  3,
+  2
+ ],
+ "currentPlayer": "player1",
+ "totalMoves": 5,
+ "isGameOver": true
+}
