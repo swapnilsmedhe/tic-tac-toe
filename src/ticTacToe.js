@@ -70,10 +70,7 @@ const getSymbol = (position, player1Moves, player2Moves) => {
   if (player1Moves.includes(position)) {
     return 'X';
   }
-  if (player2Moves.includes(position)) {
-    return 'O';
-  }
-  return ' ';
+  return player2Moves.includes(position) ? 'O' : ' ';
 };
 
 const mapMovesToSymbol = ({ player1: player1Moves, player2: player2Moves }) => {
