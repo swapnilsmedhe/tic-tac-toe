@@ -1,12 +1,12 @@
 {
  "player1": [
   5,
-  2,
-  8
+  9,
+  1
  ],
  "player2": [
-  3,
-  1
+  2,
+  3
  ],
  "currentPlayer": "player1",
  "totalMoves": 5,

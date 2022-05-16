@@ -1,2 +1,3 @@
-./.eslintrc
-./html/index.html
+.eslintrc.json
+html/index.html
+resources/gameStatus.json
