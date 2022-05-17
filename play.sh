@@ -4,7 +4,7 @@ function main() {
   local gameFile="./resources/gameStatus.json"
   node src/setUpGame.js
 
-  while grep -q '"isGameOver": false' ${gameFile}
+  while grep -q '"isGameOver":false' ${gameFile}
   do
     read -p "Enter the move: " move
     node src/ticTacToe.js ${move}

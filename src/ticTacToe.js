@@ -103,8 +103,6 @@ const writeToFile = (filePath, content) => {
   }
 };
 
-const prettyStringify = (value) => JSON.stringify(value, null, 1);
-
 const main = (move) => {
   let game = JSON.parse(readFile('./resources/gameStatus.json'));
   game = playRound(game, move);
@@ -115,7 +113,7 @@ const main = (move) => {
   const html = generatePage(boardStatus, message, template);
 
   writeToFile('./html/index.html', html);
-  writeToFile('./resources/gameStatus.json', prettyStringify(game));
+  writeToFile('./resources/gameStatus.json', JSON.stringify(game));
 };
 
 main(+process.argv[2]);

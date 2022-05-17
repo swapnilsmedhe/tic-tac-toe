@@ -1,8 +1,12 @@
 /* eslint-disable no-magic-numbers */
-const { writeFileSync } = require('fs');
+const fs = require('fs');
 
-const prettyStringify = (value) => {
-  return JSON.stringify(value, null, 1);
+const writeToFile = (filePath, content) => {
+  try {
+    fs.writeFileSync(filePath, content, 'utf-8');
+  } catch (error) {
+    throw 'Unable to start the game';
+  }
 };
 
 const main = () => {
@@ -13,7 +17,7 @@ const main = () => {
     totalMoves: 0,
     isGameOver: false
   };
-  writeFileSync('./resources/gameStatus.json', prettyStringify(game), 'utf-8');
+  writeToFile('./resources/gameStatus.json', JSON.stringify(game));
 };
 
 main();
