@@ -5,11 +5,7 @@ const { generatePage } = require('./generatePage.js');
 const registerMove = (game, move) => {
   const currentPlayersMoves = game[game.currentPlayer];
   currentPlayersMoves.push(move);
-  return game;
-};
-
-const incrementMoves = (game) => {
-  game.totalMoves += 1;
+  game.totalMoves++;
   return game;
 };
 
@@ -58,7 +54,6 @@ const playRound = (game, move) => {
     return game;
   }
   game = registerMove(game, move);
-  game = incrementMoves(game);
   if (isGameOver(game)) {
     game.isGameOver = true;
     return game;
