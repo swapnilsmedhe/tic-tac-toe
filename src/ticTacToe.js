@@ -34,12 +34,8 @@ const isGameOver = (game) => {
   return hasPlayerWon(currentPlayersMoves) || isGameDrawn(game);
 };
 
-const updateCurrentPlayer = (game) => {
-  const nextPlayer = 'player2';
-  const currentPlayer = game.currentPlayer;
-  game.currentPlayer = currentPlayer === nextPlayer ? 'player1' : nextPlayer;
-
-  return game;
+const changeCurrentPlayer = ({ currentPlayer }) => {
+  return currentPlayer === 'player1' ? 'player2' : 'player1';
 };
 
 const isValidMove = ({ player1, player2 }, playedMove) => {
@@ -58,7 +54,8 @@ const playRound = (game, move) => {
     game.isGameOver = true;
     return game;
   }
-  return updateCurrentPlayer(game);
+  game.currentPlayer = changeCurrentPlayer(game);
+  return game;
 };
 
 const getSymbol = (position, player1Moves, player2Moves) => {
