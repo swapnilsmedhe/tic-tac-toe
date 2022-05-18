@@ -1,6 +1,5 @@
 /* eslint-disable no-magic-numbers */
 const fs = require('fs');
-const { generatePage } = require('./generatePage.js');
 
 const registerMove = (game, move) => {
   const currentPlayersMoves = game[game.currentPlayer];
@@ -100,17 +99,8 @@ const writeToFile = (filePath, content) => {
   }
 };
 
-const main = (move) => {
-  let game = JSON.parse(readFile('./resources/gameStatus.json'));
-  game = playRound(game, move);
-
-  const boardStatus = mapMovesToSymbol(game);
-  const template = readFile('./resources/template.html');
-  const message = getMessage(game);
-  const html = generatePage(boardStatus, message, template);
-
-  writeToFile('./html/index.html', html);
-  writeToFile('./resources/gameStatus.json', JSON.stringify(game));
-};
-
-main(+process.argv[2]);
+exports.playRound = playRound;
+exports.mapMovesToSymbol = mapMovesToSymbol;
+exports.getMessage = getMessage;
+exports.writeToFile = writeToFile;
+exports.readFile = readFile;

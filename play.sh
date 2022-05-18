@@ -7,7 +7,7 @@ function main() {
   while grep -q '"isGameOver":false' ${gameFile}
   do
     read -p "Enter the move: " move
-    node src/ticTacToe.js ${move}
+    node src/playGame.js ${move}
     open html/index.html
   done
 }
