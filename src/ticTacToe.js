@@ -104,3 +104,4 @@ exports.mapMovesToSymbol = mapMovesToSymbol;
 exports.getMessage = getMessage;
 exports.writeToFile = writeToFile;
 exports.readFile = readFile;
+exports.hasPlayerWon = hasPlayerWon;

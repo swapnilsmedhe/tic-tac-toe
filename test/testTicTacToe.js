@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { playRound } = require('../src/ticTacToe.js');
+const { playRound, hasPlayerWon } = require('../src/ticTacToe.js');
 
 describe('playRound', () => {
   it('should play a roud for player 1', () => {
@@ -80,5 +80,15 @@ describe('playRound', () => {
       totalMoves: 4,
       isGameOver: false
     });
+  });
+});
+
+describe('hasPlayerWon', () => {
+  it('should return true if player won', () => {
+    return assert.ok(hasPlayerWon([4, 1, 7]));
+  });
+
+  it('should return false if player has not won', () => {
+    return assert.ok(hasPlayerWon([1, 4, 9, 5]));
   });
 });
